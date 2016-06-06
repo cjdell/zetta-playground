@@ -1,0 +1,17 @@
+{
+  "name": "zetta-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zetta": "^1.0.0-beta.7",
+    "zetta-device": "^0.19.0",
+    "zetta-led-mock-driver": "^0.10.0"
+  }
+}
