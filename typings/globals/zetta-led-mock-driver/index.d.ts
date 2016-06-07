@@ -1,6 +1,8 @@
-/// <reference path="../zetta/index.d.ts" />
+/// <reference path="../zetta-device/index.d.ts" />
 
-type ZettaLedMockDriver = Function;
+declare class ZettaLedMockDriver extends Device {
+  init(config: DeviceConfig): void;
+}
 
 declare module "zetta-led-mock-driver" {
   var driver: ZettaLedMockDriver;

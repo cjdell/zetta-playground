@@ -2,20 +2,20 @@
 
 import Device = require('zetta-device');
 
-export = class LED extends Device {
-  led: string;
+export = class LightSwitch extends Device {
+  name: string;
   state: string;
 
-  constructor(led: string) {
+  constructor(name: string) {
     super();
-    this.led = led;
+    this.name = name;
   }
 
   init(config: DeviceConfig) {
     config
-      .type('led')
+      .type('light-switch')
       .state('off')
-      .name(this.led)
+      .name(this.name)
       .when('off', { allow: ['turn-on'] })
       .when('on', { allow: ['turn-off'] })
       .map('turn-on', this.turnOn)
