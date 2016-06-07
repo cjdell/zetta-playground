@@ -6,6 +6,6 @@ My playground for experimenting with Zetta as a home automation solution. Very m
 Running
 -------
 
-  npm -g install ts-node
-  npm install
-  npm start
+    npm -g install ts-node
+    npm install
+    npm start
