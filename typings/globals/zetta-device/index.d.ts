@@ -3,7 +3,7 @@ type WhenOptions = {
 };
 
 type TransitionFunction = {
-  (cb: Function): void
+  (cb: () => void): void
 };
 
 type TransitionAttribute = {
@@ -15,12 +15,13 @@ type TransitionAttribute = {
 };
 
 type DeviceConfig = {
+  id: (id: string) => DeviceConfig,
   type: (type: string) => DeviceConfig,
   state: (state: string) => DeviceConfig,
   name: (name: string) => DeviceConfig,
   when: (state: string, options: WhenOptions) => DeviceConfig,
   map: (transition: string, func: TransitionFunction, attrs?: TransitionAttribute[]) => DeviceConfig,
-  monitor: (propertyName: string) => void
+  monitor: (propertyName: string) => DeviceConfig
 };
 
 type DeviceReadStream = NodeJS.ReadableStream & {
@@ -34,6 +35,8 @@ declare abstract class Device {
   available(state: String): boolean;
   call(state: String): void
 }
+
+type DeviceClass = new (...args: any[]) => Device;
 
 declare module "zetta-device" {
   export = Device;

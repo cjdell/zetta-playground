@@ -3,7 +3,9 @@
 declare function ZettaConstructor(): Zetta;
 
 type QueryExpr = {
-  type: string
+  id?: string,
+  type?: string,
+  vendorId?: string
 };
 
 type Query = {
@@ -13,9 +15,8 @@ type Query = {
 type Server = {
   where(queryExpr: QueryExpr): Query,
   observe(queries: Query[], callback: (...device: Device[]) => void): void
+  find(query: Query, callback: (err: Error, results: any[]) => void): void
 };
-
-type DeviceClass = new (name: string) => Device;
 
 type Application = (server: Server) => void;
 
@@ -23,11 +24,9 @@ type Useables = DeviceClass | Application;
 
 type Zetta = {
   name(name: string): Zetta,
-  use(driver: {}, arg1?: any): Zetta,
+  use(device: {}, arg1?: any): Zetta,
   listen(port: number, start: () => void): void
 };
-
-// declare type Driver = Function;
 
 declare module "zetta" {
   export = ZettaConstructor;

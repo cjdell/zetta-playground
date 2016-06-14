@@ -1,5 +1,7 @@
 {
   "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
+    "mdns": "registry:dt/mdns#0.0.0+20160317120654",
     "node-4": "registry:dt/node-4#4.0.0+20160524002506"
   }
 }
