@@ -15,7 +15,7 @@ import Home = require('./interactions/home');
 zetta()
   .name('Zetta Playground')
   .use(EspScout)
-  // .use(DummyScout)
+  .use(DummyScout)
   .use(ProximitySensor)
   .use(Home)
   .listen(config.Ports.Zetta, function () {

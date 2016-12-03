@@ -23,19 +23,19 @@ export = class DummySwitch extends Device {
       .type('dummy-switch')
       .name(this.name)
       .state('off')
-      .when('off', { allow: ['turn-on', 'do-send'] })
+      .when('off', { allow: ['turn-on'] })
       .when('on', { allow: ['turn-off'] })
       .map('turn-on', this.turnOn)
       .map('turn-off', this.turnOff)
-      .map('do-send', this.doSend, [{ name: 'code', type: 'number' }]);
+      // .map('do-send', this.doSend, [{ name: 'code', type: 'number' }]);
   }
 
   turnOn(cb: () => void) {
     this.state = 'on';
 
-    setTimeout(() => {
-      this.state = 'off';
-    }, 2000);
+    // setTimeout(() => {
+    //   this.state = 'off';
+    // }, 2000);
 
     cb();
   }
@@ -45,7 +45,7 @@ export = class DummySwitch extends Device {
     cb();
   }
 
-  doSend(cb: () => void) {
-    console.log('send', arguments);
-  }
+  // doSend(cb: () => void) {
+  //   console.log('send', arguments);
+  // }
 }
